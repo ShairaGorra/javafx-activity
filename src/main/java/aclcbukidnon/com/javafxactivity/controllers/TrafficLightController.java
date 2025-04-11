@@ -7,6 +7,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
+
 public class TrafficLightController {
 
     private enum TrafficLightColor {
