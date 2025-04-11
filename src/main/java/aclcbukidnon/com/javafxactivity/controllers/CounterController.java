@@ -1,26 +1,41 @@
 package aclcbukidnon.com.javafxactivity.controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 public class CounterController {
 
     @FXML
-    private Label labelCount;
+    private Button decrementButton;
 
     @FXML
-    protected void onPlusClick(){
-        var countText = labelCount.getText();
-        var countValue = Integer.parseInt(countText);
-        countValue++;
-        labelCount.setText(countValue + "");
+    private Button incrementButton;
+
+    @FXML
+    private Label counterLabel;
+
+    private int counter = 0; // Encapsulation: private counter variable
+
+    @FXML
+    private void initialize() {
+        updateCounterLabel();
+
+        decrementButton.setOnAction(_ -> decrement());
+        incrementButton.setOnAction(_ -> increment());
     }
 
-    @FXML
-    protected void onMinusClick(){
-        var countText = labelCount.getText();
-        var countValue = Integer.parseInt(countText);
-        countValue--;
-        labelCount.setText(countValue + "");
+    private void increment() {
+        counter++;
+        updateCounterLabel();
+    }
+
+    private void decrement() {
+        counter--;
+        updateCounterLabel();
+    }
+
+    private void updateCounterLabel() {
+        counterLabel.setText(String.valueOf(counter));
     }
 }
